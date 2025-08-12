@@ -13,7 +13,20 @@ export const metadata: Metadata = {
   description:
     "Exclusive over-water real estate investment opportunities in the Maldives. Discover luxury properties and investment plans with Coral Construct Solutions.",
   keywords: "Maldives real estate, over-water properties, luxury investments, coral construction",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: [
+      {
+        url: '/favicon.ico',
+        sizes: 'any',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -23,6 +36,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased overflow-x-hidden`}>
         <div className="min-h-screen w-full max-w-full">
           <Navbar />
