@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, Globe, MessageCircle, Calendar, FileText } from "lucide-react"
+import { Mail, Phone, Globe, MessageCircle, Calendar, FileText, MessageSquare, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -12,22 +12,31 @@ export default function Contact() {
       icon: Mail,
       title: "Email Us",
       description: "Get detailed information about our projects",
-      contact: "invest@coralconstruct.com",
       action: "Send Email",
+      email: "malcolmlenox8@gmail.com"
     },
     {
       icon: Phone,
       title: "Schedule Call",
       description: "Speak with our investment advisors",
-      contact: "+1 (555) 123-4567",
+      contact: "+1 (305) 204-8802",
       action: "Call Now",
     },
     {
-      icon: MessageCircle,
-      title: "Live Chat",
-      description: "Instant support for quick questions",
-      contact: "Available 24/7",
-      action: "Start Chat",
+      icon: MessageSquare,
+      title: "WhatsApp",
+      description: "Quick messaging and support",
+      contact: "+1 772 240 8195",
+      action: "WhatsApp",
+      whatsapp: true
+    },
+    {
+      icon: Send,
+      title: "Telegram",
+      description: "Instant messaging and updates",
+      contact: "+1 305 204 8802",
+      action: "Telegram",
+      telegram: true
     },
   ]
 
@@ -111,11 +120,27 @@ export default function Contact() {
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-slate-800 mb-1 text-sm sm:text-base">{method.title}</h3>
                       <p className="text-xs sm:text-sm text-slate-600 mb-2">{method.description}</p>
-                      <p className="text-xs sm:text-sm font-medium text-teal-600 mb-3 break-words">{method.contact}</p>
+                      {method.contact && !method.whatsapp && !method.telegram && (
+                        <p className="text-xs sm:text-sm font-medium text-teal-600 mb-3 break-words">{method.contact}</p>
+                      )}
                       <Button
                         variant="outline"
                         size="sm"
                         className="border-teal-500 text-teal-600 hover:bg-teal-50 bg-transparent text-xs sm:text-sm"
+                        onClick={() => {
+                          if (method.email) {
+                            window.location.href = `mailto:${method.email}?subject=Inquiry about Coral Construct Solutions`;
+                          } else if (method.whatsapp) {
+                            const whatsappNumber = method.contact.replace(/\s+/g, '');
+                            window.open(`https://wa.me/${whatsappNumber}?text=Hello, I'm interested in learning more about Coral Construct Solutions investment opportunities.`, '_blank');
+                          } else if (method.telegram) {
+                            const telegramNumber = method.contact.replace(/\s+/g, '');
+                            window.open(`https://t.me/${telegramNumber}?text=Hello, I'm interested in learning more about Coral Construct Solutions investment opportunities.`, '_blank');
+                          } else if (method.contact && method.contact.includes('+')) {
+                            const phoneNumber = method.contact.replace(/\s+/g, '');
+                            window.location.href = `tel:${phoneNumber}`;
+                          }
+                        }}
                       >
                         {method.action}
                       </Button>

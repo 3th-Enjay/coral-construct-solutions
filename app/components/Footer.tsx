@@ -1,7 +1,8 @@
 "use client"
 
-import { Waves, Mail, Phone } from "lucide-react"
+import { Waves, Mail, Phone, MessageSquare, Send } from "lucide-react"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Footer() {
   const footerLinks = [
@@ -24,15 +25,49 @@ export default function Footer() {
               Pioneering luxury over-water real estate investments in the pristine waters of the Maldives. Global reach,
               virtual excellence.
             </p>
-            <div className="space-y-2 sm:space-y-3">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-teal-400 flex-shrink-0" />
-                <span className="text-slate-300 text-sm sm:text-base break-words">invest@coralconstruct.com</span>
-              </div>
+            <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-teal-400 flex-shrink-0" />
-                <span className="text-slate-300 text-sm sm:text-base">+1 (305) 204-8802</span>
+                <a 
+                  href="tel:+13052048802"
+                  className="text-slate-300 text-sm sm:text-base hover:text-teal-400 transition-colors"
+                >
+                  +1 (305) 204-8802
+                </a>
               </div>
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-teal-400 flex-shrink-0" />
+                <a 
+                  href="https://wa.me/17722408195?text=Hello, I'm interested in learning more about Coral Construct Solutions investment opportunities."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 text-sm sm:text-base hover:text-teal-400 transition-colors"
+                >
+                  WhatsApp
+                </a>
+              </div>
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <Send className="w-4 h-4 sm:w-5 sm:h-5 text-teal-400 flex-shrink-0" />
+                <a 
+                  href="https://t.me/13052048802?text=Hello, I'm interested in learning more about Coral Construct Solutions investment opportunities."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 text-sm sm:text-base hover:text-teal-400 transition-colors"
+                >
+                  Telegram
+                </a>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-white transition-colors text-xs sm:text-sm"
+                onClick={() => {
+                  window.location.href = 'mailto:malcolmlenox8@gmail.com?subject=Inquiry about Coral Construct Solutions';
+                }}
+              >
+                <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                Send Email
+              </Button>
             </div>
           </div>
 
