@@ -23,10 +23,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased overflow-x-hidden`}>
+        <div className="min-h-screen w-full max-w-full">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   )

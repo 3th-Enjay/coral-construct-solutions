@@ -28,16 +28,16 @@ import {
 
 const performanceData = {
   turquoise: [
-    { name: 'Q1 2023', occupancy: 82, revenue: 3.2, roi: 18 },
-    { name: 'Q2 2023', occupancy: 88, revenue: 3.8, roi: 20 },
-    { name: 'Q3 2023', occupancy: 91, revenue: 4.1, roi: 22 },
-    { name: 'Q4 2023', occupancy: 95, revenue: 4.6, roi: 24 },
+    { name: 'Q1 2023', occupancy: 82, revenue: 3.2 },
+    { name: 'Q2 2023', occupancy: 88, revenue: 3.8 },
+    { name: 'Q3 2023', occupancy: 91, revenue: 4.1 },
+    { name: 'Q4 2023', occupancy: 95, revenue: 4.6 },
   ],
   crystal: [
-    { name: 'Q1 2023', occupancy: 78, revenue: 2.1, roi: 16 },
-    { name: 'Q2 2023', occupancy: 85, revenue: 2.5, roi: 18 },
-    { name: 'Q3 2023', occupancy: 89, revenue: 2.9, roi: 19 },
-    { name: 'Q4 2023', occupancy: 92, revenue: 3.3, roi: 21 },
+    { name: 'Q1 2023', occupancy: 78, revenue: 2.1 },
+    { name: 'Q2 2023', occupancy: 85, revenue: 2.5 },
+    { name: 'Q3 2023', occupancy: 89, revenue: 2.9 },
+    { name: 'Q4 2023', occupancy: 92, revenue: 3.3 },
   ]
 };
 
@@ -51,7 +51,7 @@ const caseStudies = {
       },
       {
         title: "Investment Performance",
-        content: "Initial investors saw returns begin within 6 months of operation. The resort achieved 95% average occupancy in its first year, generating $4.6M in quarterly revenue by Q4 2023. Current ROI stands at 24%, exceeding projections by 4 percentage points."
+        content: "Initial investors saw returns begin within 6 months of operation. The resort achieved 95% average occupancy in its first year, generating $4.6M in quarterly revenue by Q4 2023."
       },
       {
         title: "Key Success Factors",
@@ -65,7 +65,6 @@ const caseStudies = {
     ],
     stats: [
       { label: "Construction Time", value: "18 months" },
-      { label: "ROI Exceeded Projections", value: "+4%" },
       { label: "Guest Satisfaction", value: "98%" },
       { label: "Environmental Impact", value: "Carbon Neutral" }
     ]
@@ -79,7 +78,7 @@ const caseStudies = {
       },
       {
         title: "Investment Performance",
-        content: "Despite its smaller scale, the project achieved remarkable financial performance with 92% occupancy and $3.3M quarterly revenue by Q4 2023. The current 21% ROI represents a 3 percentage point improvement over initial projections."
+        content: "Despite its smaller scale, the project achieved remarkable financial performance with 92% occupancy and $3.3M quarterly revenue by Q4 2023."
       },
       {
         title: "Key Success Factors",
@@ -93,7 +92,6 @@ const caseStudies = {
     ],
     stats: [
       { label: "Construction Time", value: "14 months" },
-      { label: "ROI Exceeded Projections", value: "+3%" },
       { label: "Repeat Guest Rate", value: "45%" },
       { label: "Local Employment", value: "85% staff" }
     ]
@@ -114,7 +112,6 @@ export default function CompletedProjects() {
       completedDate: "December 2023",
       investment: "$35M",
       units: 42,
-      currentROI: "24%",
       description:
         "Our flagship over-water resort featuring world-class amenities and breathtaking ocean views. This project has exceeded all performance expectations with consistent high occupancy rates.",
       achievements: [
@@ -137,7 +134,6 @@ export default function CompletedProjects() {
       completedDate: "August 2023",
       investment: "$18M",
       units: 28,
-      currentROI: "21%",
       description:
         "Intimate collection of luxury over-water villas offering unparalleled privacy and personalized service. Each villa features unique architectural elements and premium amenities.",
       achievements: [
@@ -162,7 +158,6 @@ export default function CompletedProjects() {
       completedDate: string;
       investment: string;
       units: number;
-      currentROI: string;
       description: string;
       achievements: string[];
       image: string;
@@ -224,10 +219,6 @@ export default function CompletedProjects() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-teal-50 p-4 rounded-lg">
-                <div className="text-3xl font-bold text-teal-700">{selectedProject.currentROI}</div>
-                <div className="text-sm text-slate-600">Current ROI</div>
-              </div>
-              <div className="bg-teal-50 p-4 rounded-lg">
                 <div className="text-3xl font-bold text-teal-700">
                   {Math.max(...performanceData[selectedProject.key].map(d => d.occupancy))}%
                 </div>
@@ -276,19 +267,19 @@ export default function CompletedProjects() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-teal-50 to-cyan-50">
+    <section className="py-12 sm:py-20 bg-gradient-to-br from-teal-50 to-cyan-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Completed <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-2">
             Explore our successfully completed developments that continue to deliver exceptional returns and set new
             standards in luxury over-water living.
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {projects.map((project, index) => (
             <Card
               key={project.id}
@@ -305,66 +296,56 @@ export default function CompletedProjects() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-green-500 text-white">
-                      <Award className="w-3 h-3 mr-1" />
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                    <Badge className="bg-green-500 text-white text-xs sm:text-sm">
+                      <Award className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />
                       {project.status}
-                    </Badge>
-                  </div>
-                  <div className="absolute bottom-4 right-4">
-                    <Badge variant="outline" className="bg-white/90 text-slate-800">
-                      <TrendingUp className="w-3 h-3 mr-1" />
-                      ROI: {project.currentROI}
                     </Badge>
                   </div>
                 </div>
 
-                <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
-                  <h3 className="font-playfair text-3xl font-bold mb-4 text-slate-800">{project.name}</h3>
+                <CardContent className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
+                  <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-slate-800">{project.name}</h3>
 
-                  <div className="flex flex-wrap gap-4 mb-6 text-sm text-slate-600">
+                  <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm text-slate-600">
                     <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-green-500" />
+                      <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-green-500" />
                       Completed {project.completedDate}
                     </div>
                     <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-2 text-green-500" />
+                      <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-green-500" />
                       {project.investors} Investors
                     </div>
                   </div>
 
-                  <p className="text-slate-600 mb-6 leading-relaxed">{project.description}</p>
+                  <p className="text-slate-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{project.description}</p>
 
-                  <div className="mb-8">
-                    <h4 className="font-semibold mb-4 text-slate-800">Key Achievements:</h4>
+                  <div className="mb-6 sm:mb-8">
+                    <h4 className="font-semibold mb-3 sm:mb-4 text-slate-800 text-sm sm:text-base">Key Achievements:</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {project.achievements.map((achievement, achievementIndex) => (
-                        <div key={achievementIndex} className="flex items-center text-sm text-slate-600">
-                          <Award className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+                        <div key={achievementIndex} className="flex items-center text-xs sm:text-sm text-slate-600">
+                          <Award className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                           {achievement}
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4 mb-8 p-4 bg-gradient-to-r from-green-50 to-teal-50 rounded-lg">
+                  <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8 p-4 sm:p-6 bg-gradient-to-r from-green-50 to-teal-50 rounded-lg">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">{project.units}</div>
-                      <div className="text-xs text-slate-600">Units</div>
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600 mb-1 sm:mb-2">{project.units}</div>
+                      <div className="text-xs sm:text-sm text-slate-600 font-medium">Units Available</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">{project.investment}</div>
-                      <div className="text-xs text-slate-600">Investment</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">{project.currentROI}</div>
-                      <div className="text-xs text-slate-600">Current ROI</div>
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600 mb-1 sm:mb-2">{project.investment}</div>
+                      <div className="text-xs sm:text-sm text-slate-600 font-medium">Total Investment</div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <Button 
-                      className="bg-green-600 hover:bg-green-700 text-white flex-1"
+                      className="bg-green-600 hover:bg-green-700 text-white flex-1 text-sm sm:text-base"
                       onClick={() => handleButtonClick(project, "performance")}
                     >
                       <BarChart2 className="w-4 h-4 mr-2" />
@@ -372,7 +353,7 @@ export default function CompletedProjects() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="border-green-600 text-green-600 hover:bg-green-50 flex-1 bg-transparent"
+                      className="border-green-600 text-green-600 hover:bg-green-50 flex-1 bg-transparent text-sm sm:text-base"
                       onClick={() => handleButtonClick(project, "caseStudy")}
                     >
                       <FileText className="w-4 h-4 mr-2" />
@@ -385,30 +366,26 @@ export default function CompletedProjects() {
           ))}
         </div>
 
-        <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
-            <h3 className="font-playfair text-2xl font-bold mb-4 text-slate-800">Proven Track Record</h3>
-            <p className="text-slate-600 mb-6">
-              Our completed projects demonstrate consistent performance and investor satisfaction, with an average ROI
-              of 22.5% across all developments.
+        <div className="text-center mt-12 sm:mt-16">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg max-w-4xl mx-auto">
+            <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-slate-800">Proven Track Record</h3>
+            <p className="text-slate-600 mb-6 text-sm sm:text-base px-2">
+              Our completed projects demonstrate consistent performance and investor satisfaction across all developments.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">$53M</div>
-                <div className="text-slate-600">Total Completed Value</div>
+                <div className="text-2xl sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">$53M</div>
+                <div className="text-slate-600 text-sm sm:text-base">Total Completed Value</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">70</div>
-                <div className="text-slate-600">Units Delivered</div>
+                <div className="text-2xl sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">70</div>
+                <div className="text-slate-600 text-sm sm:text-base">Units Delivered</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">245</div>
-                <div className="text-slate-600">Happy Investors</div>
+                <div className="text-2xl sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">245</div>
+                <div className="text-slate-600 text-sm sm:text-base">Happy Investors</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">22.5%</div>
-                <div className="text-slate-600">Average ROI</div>
-              </div>
+ 
             </div>
           </div>
         </div>

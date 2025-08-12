@@ -6,7 +6,7 @@ import Contact from "./components/Contact"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen w-full max-w-full overflow-x-hidden">
       <Hero />
       <About />
       <IncomingProjects />

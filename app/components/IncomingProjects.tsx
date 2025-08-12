@@ -27,7 +27,6 @@ interface ProjectFeatures {
   image: string;
   additionalImages: string[];
   status: string;
-  roi: string;
   contact: {
     primary: string;
     secondary: string;
@@ -65,9 +64,8 @@ export default function IncomingProjects() {
         "/id1-img4.jpg",
       ],
       status: "On-going",
-      roi: "18-22%",
       contact: {
-        primary: "malcolmlenox@gmail.com",
+        primary: "malcolmlenox8@gmail.com",
         secondary: "brynichole10@gmail.com"
       }
     },
@@ -96,9 +94,8 @@ export default function IncomingProjects() {
         "/id2-img4.jpg",
       ],
       status: "Planning",
-      roi: "22-28%",
       contact: {
-        primary: "malcolmlenox@gmail.com",
+        primary: "malcolmlenox8@gmail.com",
         secondary: "brynichole10@gmail.com"
       }
     },
@@ -127,9 +124,8 @@ export default function IncomingProjects() {
         "/id3-img2.jpeg",
       ],
       status: "Design Phase",
-      roi: "16-20%",
       contact: {
-        primary: "malcolmlenox@gmail.com",
+        primary: "malcolmlenox8@gmail.com",
         secondary: "brynichole10@gmail.com"
       }
     },
@@ -266,19 +262,19 @@ export default function IncomingProjects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-12 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Incoming <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-2">
             Discover our upcoming over-water developments, each offering unique investment opportunities in the world's
             most pristine marine environments.
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {projects.map((project, index) => (
             <Card key={project.id} className="overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
               <div
@@ -292,62 +288,57 @@ export default function IncomingProjects() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-teal-500 text-white">{project.status}</Badge>
-                  </div>
-                  <div className="absolute bottom-4 right-4">
-                    <Badge variant="outline" className="bg-white/90 text-slate-800">
-                      ROI: {project.roi}
-                    </Badge>
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                    <Badge className="bg-teal-500 text-white text-xs sm:text-sm">{project.status}</Badge>
                   </div>
                 </div>
 
-                <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
-                  <h3 className="font-playfair text-3xl font-bold mb-4 text-slate-800">{project.name}</h3>
+                <CardContent className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
+                  <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-slate-800">{project.name}</h3>
 
-                  <div className="flex flex-wrap gap-4 mb-6 text-sm text-slate-600">
+                  <div className="flex flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm text-slate-600">
                     <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-teal-500" />
+                      <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-teal-500" />
                       {project.location}
                     </div>
                     <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-teal-500" />
+                      <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-teal-500" />
                       {project.launchDate}
                     </div>
                     <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-2 text-teal-500" />
+                      <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-teal-500" />
                       {project.units} Units
                     </div>
                     <div className="flex items-center">
-                      <Waves className="w-4 h-4 mr-2 text-teal-500" />
+                      <Waves className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-teal-500" />
                       {project.investment}
                     </div>
                   </div>
 
-                  <p className="text-slate-600 mb-6 leading-relaxed">{project.description}</p>
+                  <p className="text-slate-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{project.description}</p>
 
-                  <div className="mb-8">
-                    <h4 className="font-semibold mb-4 text-slate-800">Key Features:</h4>
+                  <div className="mb-6 sm:mb-8">
+                    <h4 className="font-semibold mb-3 sm:mb-4 text-slate-800 text-sm sm:text-base">Key Features:</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {project.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center text-sm text-slate-600">
-                          <div className="w-2 h-2 bg-teal-500 rounded-full mr-3"></div>
+                        <div key={featureIndex} className="flex items-center text-xs sm:text-sm text-slate-600">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-teal-500 rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
                           {feature}
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <Button 
-                      className="ocean-gradient text-white flex-1"
+                      className="ocean-gradient text-white flex-1 text-sm sm:text-base"
                       onClick={() => handleButtonClick(project, "info")}
                     >
                       Request Information
                     </Button>
                     <Button
                       variant="outline"
-                      className="border-teal-500 text-teal-600 hover:bg-teal-50 flex-1 bg-transparent"
+                      className="border-teal-500 text-teal-600 hover:bg-teal-50 flex-1 bg-transparent text-sm sm:text-base"
                       onClick={() => handleButtonClick(project, "tour")}
                     >
                       Schedule Tour

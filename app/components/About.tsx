@@ -29,58 +29,58 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-12 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             About <span className="gradient-text">Coral Construct Solutions</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-2">
             We are a pioneering real estate investment firm specializing in luxury over-water developments in the
             Maldives. Operating without traditional boundaries, we connect global investors with exclusive paradise
             properties.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {features.map((feature, index) => (
             <Card
               key={index}
               className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-slate-50 to-white"
             >
-              <CardContent className="p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 ocean-gradient rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-8 h-8 text-white" />
+              <CardContent className="p-6 sm:p-8 text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 ocean-gradient rounded-full mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <h3 className="font-playfair text-xl font-semibold mb-4 text-slate-800">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                <h3 className="font-playfair text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-slate-800">{feature.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-3xl p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h3 className="font-playfair text-3xl font-bold mb-6 text-slate-800">Virtual Excellence, Real Results</h3>
-              <p className="text-slate-600 mb-6 leading-relaxed">
+              <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-slate-800">Virtual Excellence, Real Results</h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm sm:text-base">
                 Operating without a physical address allows us to maintain lower overhead costs while providing premium
                 services. Our virtual-first approach enables us to work with the best talent globally and pass savings
                 directly to our investors.
               </p>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-2">50+</div>
-                  <div className="text-slate-600">Projects Completed</div>
+                  <div className="text-2xl sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">50+</div>
+                  <div className="text-slate-600 text-sm sm:text-base">Projects Completed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold gradient-text mb-2">$2B+</div>
-                  <div className="text-slate-600">Total Investment</div>
+                  <div className="text-2xl sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">$2B+</div>
+                  <div className="text-slate-600 text-sm sm:text-base">Total Investment</div>
                 </div>
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
+              <div className="aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
                 <NextImage
                   src="/about-maldives.jpg?height=400&width=600"
                   alt="Maldives aerial view"
